@@ -14,6 +14,7 @@ Route::view('/about', 'about');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::delete('/login', [LoginController::class, 'destroy'])->name('login.destroy');
 
 Route::get('/cars', CarController::class);
 Route::get('/services', ServiceController::class);

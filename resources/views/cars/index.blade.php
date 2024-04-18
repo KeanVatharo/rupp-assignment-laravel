@@ -16,6 +16,29 @@
                 <input class="form-control" type="number" id="price-max" min="0" />
             </div>
 
+            <div class="row">
+                @foreach ($cars as $car)
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="${car.photo_url}" class="card-img-top" />
+                            <div class="card-body">
+                                <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
+                                <p class="text-truncate">{{ $car->description }}</p>
+                                <p class="fw-bold">${{ $car->price }}</p>
+                                <div class="text-warning">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <a href="/add-to-cart.html" class="btn btn-primary">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
             <!-- Search -->
             <input class="form-control me-2 my-3" id="search-input" type="search" placeholder="Search cars..." />
 
