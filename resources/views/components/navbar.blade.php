@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg bg-white shadow mb-4">
+ <nav class="navbar navbar-expand-lg bg-white shadow">
      <div class="container-fluid py-2">
          <a class="navbar-brand" href="/">Car Garage</a>
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
