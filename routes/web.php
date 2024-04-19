@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Auth\LoginController;
@@ -9,9 +10,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminCarController;
 use App\Http\Controllers\Admin\AdminServiceController;
 
-Route::view('/', 'welcome')->name('homepage');
 Route::view('/about', 'about');
 
+Route::get('/', HomeController::class)->name('homepage');
 Route::get('/cars', CarController::class);
 Route::get('/services', ServiceController::class);
 

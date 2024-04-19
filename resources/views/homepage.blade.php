@@ -1,57 +1,62 @@
 <x-layout>
+    <header class="bg-light text-white py-3 mb-4">
+        <div class="container">
+            <h1 class="display-4 mb-0">BuyCar24</h1>
+            <p class="text-black lead">
+                Your one-stop shop for cars, services, and parts.
+            </p>
+        </div>
+    </header>
 
-    <!--Products-->
+    <!-- Cars -->
     <div class="container">
         <div class="" id="Products">
             <h1 class="text-center mb-4">Car In-Stock</h1>
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="data-container">
                 <!-- cars inject here -->
+                @foreach ($cars as $car)
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="{{ Storage::disk('public')->url($car->image_url) }}" class="card-img-top" />
+                            <div class="card-body">
+                                <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
+                                <p class="text-truncate">{{ $car->description }}</p>
+                                <p class="fw-bold">${{ $car->price }}</p>
+                                <div class="text-warning">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <a href="/add-to-cart.html" class="btn btn-primary">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
 
-    <!--About-->
-    <div class="container">
-        <div class="about" id="About">
-            <h1 class="text-center">About Car</h1>
-
-            <div class="about_main d-flex gap-2 align-items-center justify-content-center">
-                <div class="about_image">
-                    <div class="about_small_image">
-                        <img src="/images/STO3.jpg" onclick="functio(this)" />
-                        <img src="/images/STO1.jpg" onclick="functio(this)" />
-                        <img src="/images/STO2.jpg" onclick="functio(this)" />
-                        <img src="/images/STO4.jpg" onclick="functio(this)" />
-                    </div>
-
-                    <div class="image_contaner">
-                        <img src="/images/STO.jpg" id="imagebox" />
-                    </div>
-                </div>
-
-                <div class="about_text">
-                    <p>
-                        A super-sports car created with a singular purpose, the Huracán
-                        STO delivers all the feel and technology of a genuine race car in
-                        a road-legal model. Lamborghini’s years-long motorsport know-how,
-                        intensified by a winning heritage, is concentrated in the new
-                        Huracán STO. Its extreme aerodynamics, track-honed handling
-                        dynamics, lightweight contents and the highest-performing V10
-                        engine to date come together, ready to trigger all the emotions of
-                        the racetrack in your everyday life.
-                    </p>
-                </div>
-            </div>
-
-            <a href="#" class="about_btn">Shop Now</a>
+    <!--Promotion Discount -->
+    <div class="container-fluid bg-light my-5 py-5">
+        <div class="container">
+            <h2 class="display-4 fw-bold text-primary">
+                Hot Deals & Exclusive Offers!
+            </h2>
+            <p class="lead py-3">
+                Save big on your dream car with our limited-time promotions and
+                discounts. Browse our selection now and find the perfect deal for you!
+            </p>
+            <a href="./cars.html" class="btn btn-primary">Shop Now</a>
         </div>
     </div>
 
     <!--Review-->
     <div class="container" id="Review">
         <h1 class="text-center mb-4">Customer's Feedbacks</h1>
-        <div class="row row-cols-md-3 g-4 align-items-center" id="feedbacks-container">
+        <div class="row row-cols-md-3 g-4 align-items-start" id="feedbacks-container">
             <!-- Feedbacks will inject here  -->
         </div>
     </div>
