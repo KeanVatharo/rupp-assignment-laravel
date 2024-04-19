@@ -19,6 +19,9 @@
                  <li class="nav-item">
                      <a class="nav-link" href="/services">Services</a>
                  </li>
+
+
+
                  @guest
                      <li class="nav-item">
                          <a class="nav-link" href="/login">Login</a>
@@ -37,6 +40,12 @@
                          </li>
                      </form>
                  @endauth
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('admin.cars.index') }}">
+                         Admin
+                     </a>
+                 </li>
              </ul>
 
              <!-- Search -->

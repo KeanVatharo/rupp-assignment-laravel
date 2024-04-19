@@ -16,11 +16,17 @@
                 <input class="form-control" type="number" id="price-max" min="0" />
             </div>
 
-            <div class="row">
+
+
+            <!-- Search -->
+            <input class="form-control me-2 my-3" id="search-input" type="search" placeholder="Search cars..." />
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="data-container">
+                <!-- cars inject here -->
                 @foreach ($cars as $car)
                     <div class="col-3">
                         <div class="card">
-                            <img src="${car.photo_url}" class="card-img-top" />
+                            <img src="{{ Storage::disk('public')->url($car->image_url) }}" class="card-img-top" />
                             <div class="card-body">
                                 <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
                                 <p class="text-truncate">{{ $car->description }}</p>
@@ -37,13 +43,6 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-
-            <!-- Search -->
-            <input class="form-control me-2 my-3" id="search-input" type="search" placeholder="Search cars..." />
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="data-container">
-                <!-- cars inject here -->
             </div>
         </div>
     </div>

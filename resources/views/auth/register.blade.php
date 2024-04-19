@@ -26,9 +26,9 @@
                                     placeholder="Enter password" />
                             </div>
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <label for="-password" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirm-password"
-                                    name="confirm_password" placeholder="Confirm password" />
+                                    name="password_confirmation" placeholder="Confirm password" />
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="terms" name="terms" />

@@ -17,6 +17,7 @@
 
 <body>
     <x-navbar />
+    <x-display-messages />
 
     {{ $slot }}
 

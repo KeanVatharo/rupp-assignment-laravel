@@ -21,6 +21,8 @@ class CarSeeder extends Seeder
                 'price' => 12000,
                 'description' => 'Toyota Prius',
                 'image_url' => '',
+                'updated_at' => now(),
+                'created_at' => now(),
             ],
             [
                 'brand' => 'Toyota',
@@ -29,6 +31,8 @@ class CarSeeder extends Seeder
                 'price' => 12000,
                 'description' => 'Toyota Prius',
                 'image_url' => '',
+                'updated_at' => now(),
+                'created_at' => now(),
             ],
         ]);
     }
