@@ -16,6 +16,7 @@ class CarSeeder extends Seeder
         Car::insert([
             [
                 'name' => 'M5 CS',
+                'user_id' => 1,
                 'car_brand_id' => 1,
                 'year' => rand(2022, 2024),
                 'price' => 142995,
@@ -26,6 +27,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'Chiron Super Sport',
+                'user_id' => 1,
                 'car_brand_id' => 2,
                 'year' => rand(2022, 2024),
                 'price' => 192985,
@@ -36,6 +38,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'Enzo',
+                'user_id' => 1,
                 'car_brand_id' => 3,
                 'year' => rand(2022, 2024),
                 'price' => 272995,
@@ -46,6 +49,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'GT-R(R35)',
+                'user_id' => 1,
                 'car_brand_id' => 4,
                 'year' => rand(2022, 2024),
                 'price' => 162995,
@@ -56,6 +60,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'Huracan STO',
+                'user_id' => 1,
                 'car_brand_id' => 5,
                 'year' => rand(2022, 2024),
                 'price' => 334695,
@@ -66,6 +71,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'Ghost',
+                'user_id' => 1,
                 'car_brand_id' => 6,
                 'year' => rand(2022, 2024),
                 'price' => 393500,
@@ -76,6 +82,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'Spyder',
+                'user_id' => 1,
                 'car_brand_id' => 7,
                 'year' => rand(2022, 2024),
                 'price' => 845000,
@@ -86,6 +93,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name' => 'LaFerrari',
+                'user_id' => 1,
                 'car_brand_id' => 3,
                 'year' => rand(2022, 2024),
                 'price' => 115435,

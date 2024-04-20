@@ -25,6 +25,11 @@ class Car extends Model
         return number_format($this->price);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function brand(): BelongsTo
     {
         return $this->belongsTo(CarBrand::class, 'car_brand_id');
