@@ -30,7 +30,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="{{ route('cars.index') }}" class="btn btn-primary">View</a>
+                                <a href="{{ route('cars.show', $car) }}" class="btn btn-primary">View</a>
                             </div>
                         </div>
                     </div>
