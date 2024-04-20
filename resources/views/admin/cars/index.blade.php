@@ -28,7 +28,8 @@
                         <td>${{ $car->price }}</td>
                         <td>{{ $car->description }}</td>
                         <td><img src="{{ Storage::disk('public')->url($car->image_url) }}" alt="Car Image"
-                                style="max-width: 30px;"></td>
+                                style="max-width: 30px;">
+                        </td>
                         <td>{{ $car->created_at }}</td>
                         <td>{{ $car->updated_at }}</td>
                         <td class="d-flex gap-1">

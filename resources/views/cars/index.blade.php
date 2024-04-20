@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container">
+    <div class="container mt-4">
         <div class="" id="Products">
             <h1 class="text-center mb-4">Available Cars</h1>
             <!-- Filters -->
