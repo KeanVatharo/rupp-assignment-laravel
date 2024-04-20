@@ -1,5 +1,13 @@
 <x-layout>
-    <main class="container">
+    <header class="bg-light text-white py-3">
+        <div class="container">
+            <h1 class="display-4 mb-0">Contact us</h1>
+            <p class="text-black lead">Feel free to reach out to us with any inquiries or concerns you may have. We're
+                here to assist you every step of the way!</p>
+        </div>
+    </header>
+
+    <main class="container mt-4">
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h2 class="mb-3">Get in touch</h2>
