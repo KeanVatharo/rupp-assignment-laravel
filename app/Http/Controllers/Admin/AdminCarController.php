@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CarBrand;
 use Illuminate\Support\Facades\Storage;
 
 class AdminCarController extends Controller
@@ -17,18 +18,22 @@ class AdminCarController extends Controller
 
     public function create()
     {
-        return view('admin.cars.create');
+        $carBrands = CarBrand::select(['id', 'name'])->get();
+
+        return view('admin.cars.create', compact('carBrands'));
     }
 
     public function edit(Car $car)
     {
-        return view('admin.cars.edit', compact('car'));
+        $carBrands = CarBrand::select(['id', 'name'])->get();
+
+        return view('admin.cars.edit', compact('car', 'carBrands'));
     }
 
     public function update(Request $request, Car $car)
     {
         $validated = $request->validate([
-            'brand' => ['required'],
+            'car_brand_id' => ['required', 'integer'],
             'name' => ['required'],
             'year' => ['required'],
             'price' => ['required'],
@@ -49,8 +54,8 @@ class AdminCarController extends Controller
         }
 
         $car->update([
-            'brand' => $validated['brand'],
             'name' => $validated['name'],
+            'car_brand_id' => $validated['car_brand_id'],
             'year' => $validated['year'],
             'price' => $validated['price'],
             'description' => $validated['description'],
@@ -63,10 +68,10 @@ class AdminCarController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'brand' => ['required'],
+            'car_brand_id' => ['required', 'integer'],
             'name' => ['required'],
-            'year' => ['required'],
-            'price' => ['required'],
+            'year' => ['required', 'integer'],
+            'price' => ['required', 'integer'],
             'description' => ['required'],
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -78,8 +83,8 @@ class AdminCarController extends Controller
         }
 
         Car::create([
-            'brand' => $validated['brand'],
             'name' => $validated['name'],
+            'car_brand_id' => $validated['car_brand_id'],
             'year' => $validated['year'],
             'price' => $validated['price'],
             'description' => $validated['description'],

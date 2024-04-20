@@ -7,7 +7,12 @@
             <div class="d-flex flex-column gap-3">
                 <div class="form-group">
                     <label for="brand">Brand:</label>
-                    <input type="text" class="form-control" id="brand" name="brand" value="{{ $car->brand }}">
+                    <select name="car_brand_id" class="form-control" id="brand">
+                        @foreach ($carBrands as $carBrand)
+                            <option value="{{ $carBrand->id }}" @selected($car->car_brand_id === $carBrand->id)>{{ $carBrand->name }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
