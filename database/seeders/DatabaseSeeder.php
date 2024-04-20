@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([
+            CarBrandSeeder::class,
             CarSeeder::class,
             ServiceSeeder::class,
             FeedbackSeeder::class,

@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
                                 <p class="text-truncate">{{ $car->description }}</p>
-                                <p class="fw-bold">${{ $car->price }}</p>
+                                <p class="fw-bold">${{ $car->getPriceWithSymbol() }}</p>
                                 <div class="text-warning">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>

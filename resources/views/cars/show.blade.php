@@ -13,7 +13,7 @@
                     {{ $car->description }}
                 </p>
                 <ul class="list-unstyled">
-                    <li><b>Price:</b> ${{ $car->price }}</li>
+                    <li><b>Price:</b> ${{ $car->getPriceWithSymbol() }}</li>
                     <li><b>Year:</b> {{ $car->year }}</li>
                     <li><b>Mileage:</b> 100km/12L</li>
                 </ul>

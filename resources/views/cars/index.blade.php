@@ -7,6 +7,9 @@
                 <label for="brand-filter">Brand:</label>
                 <select class="form-select" id="brand-filter">
                     <option value="">All</option>
+                    @foreach ($cars as $car)
+                        <option value="{{ $car->name }}">{{ $car->name }}</option>
+                    @endforeach
                 </select>
 
                 <label for="price-min">Min Price:</label>
@@ -15,8 +18,6 @@
                 <label for="price-max">Max Price:</label>
                 <input class="form-control" type="number" id="price-max" min="0" />
             </div>
-
-
 
             <!-- Search -->
             <input class="form-control me-2 my-3" id="search-input" type="search" placeholder="Search cars..." />
@@ -28,9 +29,9 @@
                         <div class="card">
                             <img src="{{ Storage::disk('public')->url($car->image_url) }}" class="card-img-top" />
                             <div class="card-body">
-                                <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
+                                <h5>{{ $car->brand->name }} {{ $car->name }} {{ $car->year }}</h5>
                                 <p class="text-truncate">{{ $car->description }}</p>
-                                <p class="fw-bold">${{ $car->price }}</p>
+                                <p class="fw-bold">${{ $car->getPriceWithSymbol() }}</p>
                                 <div class="text-warning">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -49,113 +50,45 @@
 
     @push('scripts')
         <script>
-            const container = document.getElementById("data-container");
-            const brandFilter = document.getElementById("brand-filter");
-            const searchInput = document.getElementById("search-input");
-            const priceMinInput = document.getElementById("price-min");
-            const priceMaxInput = document.getElementById("price-max");
-            const searchParams = new URLSearchParams(window.location.search).get(
-                "search"
-            );
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get reference to filter elements
+                const brandFilter = document.getElementById("brand-filter");
+                const minPriceInput = document.getElementById("price-min");
+                const maxPriceInput = document.getElementById("price-max");
+                const searchInput = document.getElementById("search-input");
+                const dataContainer = document.getElementById("data-container");
 
-            var allCars;
+                // Attach event listeners
+                brandFilter.addEventListener("change", applyFilters);
+                minPriceInput.addEventListener("input", applyFilters);
+                maxPriceInput.addEventListener("input", applyFilters);
+                searchInput.addEventListener("input", applyFilters);
 
-            if (searchParams) {
-                searchInput.value = searchParams;
-            }
+                // Function to filter cars
+                function applyFilters() {
+                    const brandValue = brandFilter.value.toLowerCase();
+                    const minPrice = parseFloat(minPriceInput.value) || 0;
+                    const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
+                    const searchValue = searchInput.value.trim().toLowerCase();
 
-            // Fetch the data from data.json
-            fetch("./assets/js/data.json")
-                .then((response) => response.json())
-                .then((data) => {
-                    // Inject filter options
-                    const cars = data.cars;
-                    cars.forEach(function(car) {
-                        brandFilter.appendChild(createBrandFilter(car));
+                    Array.from(dataContainer.children).forEach(card => {
+                        const carBrand = card.querySelector("h5").textContent.toLowerCase();
+                        const carPrice = parseFloat(card.querySelector(".fw-bold").textContent.replace("$",
+                            ""));
+                        const carDescription = card.querySelector("p").textContent.toLowerCase();
+
+                        const brandMatch = !brandValue || carBrand.includes(brandValue);
+                        const priceMatch = carPrice >= minPrice && carPrice <= maxPrice;
+                        const searchMatch = !searchValue || carDescription.includes(searchValue);
+
+                        if (brandMatch && priceMatch && searchMatch) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
                     });
-
-                    // Initialize variables
-                    let filteredCars = cars; // initially, all cars are displayed
-
-                    // Define event listeners
-                    searchInput.addEventListener("keyup", filterCars);
-                    brandFilter.addEventListener("change", filterCars);
-                    priceMinInput.addEventListener("change", filterCars);
-                    priceMaxInput.addEventListener("change", filterCars);
-
-                    // Function to filter cars based on search, brand, and price range
-                    function filterCars() {
-                        // Get search value
-                        const searchValue = searchInput.value.toLowerCase().trim();
-
-                        // Get selected brand
-                        const selectedBrand = brandFilter.value.toLowerCase();
-
-                        // Get price range
-                        const priceMin = parseInt(priceMinInput.value) || 0;
-                        const priceMax = parseInt(priceMaxInput.value) || Infinity;
-
-                        // Filter cars based on search, brand, and price
-                        filteredCars = cars.filter((car) => {
-                            const brandMatch =
-                                car.brand.toLowerCase().includes(selectedBrand) ||
-                                selectedBrand === "";
-                            const priceMatch = car.price >= priceMin && car.price <= priceMax;
-                            const searchMatch = !searchValue ||
-                                car.brand.toLowerCase().includes(searchValue) ||
-                                car.model.toLowerCase().includes(searchValue) ||
-                                car.description.toLowerCase().includes(searchValue);
-
-                            return brandMatch && priceMatch && searchMatch;
-                        });
-
-                        // Update content with filtered cars
-                        container.innerHTML = "";
-                        filteredCars.forEach((car) => {
-                            container.appendChild(createCarElement(car));
-                        });
-                    }
-
-                    // Initial call to filter and display cars
-                    filterCars();
-                })
-                .catch((error) => console.error(error));
-
-            function createBrandFilter(car) {
-                const element = document.createElement("option");
-                element.setAttribute("value", car.brand);
-                element.innerHTML = car.brand;
-
-                return element;
-            }
-
-            function createCarElement(car) {
-                const element = document.createElement("div");
-                element.innerHTML = `
-                  <div class="card">
-                    <img
-                      src="${car.photo_url}"
-                      class="card-img-top"
-                    />
-
-                    <div class="card-body">
-                      <h5>${car.brand} ${car.model}</h5>
-                      <p class="text-truncate">${car.description}</p>
-                      <p class="fw-bold">$${car.price}</p>
-                      <div class="text-warning">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                      </div>
-                      <a href="/add-to-cart.html" class="btn btn-primary">Add To Cart</a>
-                    </div>
-                  </div>
-                  `;
-
-                return element;
-            }
+                }
+            });
         </script>
     @endpush
 </x-layout>

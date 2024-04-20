@@ -48,9 +48,14 @@
                          </a>
                      @endauth
 
-                     <input class="form-control me-2" type="search" id="navbar-search-input" placeholder="Search" />
+                     <form action="{{ route('cars.index') }}" method="GET">
+                         <div class="d-flex">
+                             <input class="form-control me-2" type="search" id="navbar-search-input" name="search"
+                                 placeholder="Search" />
+                             <button type="submit" id="navbar-search-button" class="btn btn-primary">Search</button>
+                         </div>
+                     </form>
                  </div>
-                 <a href="./cars.html" id="navbar-search-button" class="btn btn-primary">Search</a>
              </div>
          </div>
      </div>

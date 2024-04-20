@@ -25,7 +25,7 @@
                         <td>{{ $car->brand }}</td>
                         <td>{{ $car->name }}</td>
                         <td>{{ $car->year }}</td>
-                        <td>${{ $car->price }}</td>
+                        <td>${{ $car->getPriceWithSymbol() }}</td>
                         <td>{{ $car->description }}</td>
                         <td><img src="{{ Storage::disk('public')->url($car->image_url) }}" alt="Car Image"
                                 style="max-width: 30px;">

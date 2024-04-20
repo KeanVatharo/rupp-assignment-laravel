@@ -9,7 +9,15 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::all();
+        $search = request()->query('search');
+
+        if ($search) {
+            $cars = Car::whereRelation('brand', 'name', 'like', "%$search%")
+                ->orWhere('name', 'like', "%$search%")
+                ->get();
+        } else {
+            $cars = Car::all();
+        }
 
         return view('cars.index', compact('cars'));
     }
