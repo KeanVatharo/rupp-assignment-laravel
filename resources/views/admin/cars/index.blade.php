@@ -28,7 +28,7 @@
                         <td>${{ $car->getPriceWithSymbol() }}</td>
                         <td>{{ $car->description }}</td>
                         <td><img src="{{ Storage::disk('public')->url($car->image_url) }}" alt="Car Image"
-                                style="max-width: 30px;">
+                                style="max-width: 40px;">
                         </td>
                         <td>{{ $car->created_at }}</td>
                         <td>{{ $car->updated_at }}</td>

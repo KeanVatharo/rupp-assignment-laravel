@@ -8,7 +8,7 @@
                 <img src="{{ Storage::disk('public')->url($car->image_url) }}" alt="Car image" class="img-fluid" />
             </div>
             <div class="col-md-8">
-                <h4>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h4>
+                <h4>{{ $car->brand->name }} {{ $car->name }} {{ $car->year }}</h4>
                 <p>
                     {{ $car->description }}
                 </p>

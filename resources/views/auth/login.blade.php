@@ -25,13 +25,12 @@
                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                             </div>
                             <button type="submit" class="btn btn-primary">Sign In</button>
-                            <a href="/forgot-password" class="link-secondary">Forgot password?</a>
                         </form>
                     </div>
 
                     <div class="card-footer">
                         Haven't have an account?
-                        <a href="/register">Register an account</a>
+                        <a href="{{ route('register.index') }}">Register an account</a>
                     </div>
                 </div>
             </div>

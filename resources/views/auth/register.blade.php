@@ -39,7 +39,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        Already have an account? <a href="/login.html">Login In</a>
+                        Already have an account? <a href="{{ route('login.index') }}">Login In</a>
                     </div>
                 </div>
             </div>
