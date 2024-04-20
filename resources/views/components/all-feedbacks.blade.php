@@ -2,7 +2,7 @@
 <!--Review-->
 <div class="container" id="Review">
     <h1 class="text-center mb-4">Customer's Feedbacks</h1>
-    <div class="row row-cols-md-3 g-4 align-items-start" id="feedbacks-container">
+    <div class="row row-cols-md-3 g-4" id="feedbacks-container">
         @foreach ($feedbacks as $feedback)
             <div class="col shadow p-4 rounded">
                 <div class="d-flex gap-3 mb-4">
@@ -15,7 +15,6 @@
                         @endfor
                     </div>
                 </div>
-
                 <p class="m-0">{{ $feedback->description }}</p>
             </div>
         @endforeach

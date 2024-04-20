@@ -12,7 +12,6 @@
     <div class="container">
         <div class="" id="Products">
             <h1 class="text-center mb-4">Car In-Stock</h1>
-
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="data-container">
                 <!-- cars inject here -->
                 @foreach ($cars as $car)
@@ -20,7 +19,7 @@
                         <div class="card">
                             <img src="{{ Storage::disk('public')->url($car->image_url) }}" class="card-img-top" />
                             <div class="card-body">
-                                <h5>{{ $car->brand }} {{ $car->name }} {{ $car->year }}</h5>
+                                <h5>{{ $car->brand->name }} {{ $car->name }} {{ $car->year }}</h5>
                                 <p class="text-truncate">{{ $car->description }}</p>
                                 <p class="fw-bold">${{ $car->getPriceWithSymbol() }}</p>
                                 <div class="text-warning">
