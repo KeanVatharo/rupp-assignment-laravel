@@ -38,7 +38,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/add-to-cart.html" class="btn btn-primary">Add To Cart</a>
+                                <a href="{{ route('cars.show', $car) }}" class="btn btn-primary">View</a>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
@@ -9,12 +10,15 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminCarController;
 use App\Http\Controllers\Admin\AdminServiceController;
-
-Route::view('/about', 'about');
+use App\Http\Controllers\ContactUsController;
 
 Route::get('/', HomeController::class)->name('homepage');
-Route::get('/cars', CarController::class);
-Route::get('/services', ServiceController::class);
+
+Route::resource('/cars', CarController::class)->only(['index', 'show']);
+
+Route::get('/services', ServiceController::class)->name('services.index');
+Route::get('/contact-us', ContactUsController::class)->name('contact-us.index');
+Route::get('/about', AboutController::class)->name('about.index');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');

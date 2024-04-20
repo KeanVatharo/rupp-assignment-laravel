@@ -25,7 +25,7 @@
                         <td>{{ $car->brand }}</td>
                         <td>{{ $car->name }}</td>
                         <td>{{ $car->year }}</td>
-                        <td>{{ $car->price }}</td>
+                        <td>${{ $car->price }}</td>
                         <td>{{ $car->description }}</td>
                         <td><img src="{{ Storage::disk('public')->url($car->image_url) }}" alt="Car Image"
                                 style="max-width: 30px;"></td>
@@ -36,7 +36,7 @@
                             <form action="{{ route('admin.cars.destroy', $car) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Delete</button>
                             </form>
                         </td>
                     </tr>

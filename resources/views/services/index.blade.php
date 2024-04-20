@@ -1,8 +1,8 @@
 <x-layout>
-    <header class="bg-dark text-white py-3">
+    <header class="bg-light text-white py-3">
         <div class="container">
             <h1 class="display-4 mb-0">BuyCar24</h1>
-            <p class="lead">Trusted solutions for all your needs.</p>
+            <p class="text-black lead">Trusted solutions for all your needs.</p>
         </div>
     </header>
 

@@ -30,7 +30,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/add-to-cart.html" class="btn btn-primary">Add To Cart</a>
+                                <a href="{{ route('cars.index') }}" class="btn btn-primary">View</a>
                             </div>
                         </div>
                     </div>
@@ -54,12 +54,7 @@
     </div>
 
     <!--Review-->
-    <div class="container" id="Review">
-        <h1 class="text-center mb-4">Customer's Feedbacks</h1>
-        <div class="row row-cols-md-3 g-4 align-items-start" id="feedbacks-container">
-            <!-- Feedbacks will inject here  -->
-        </div>
-    </div>
+    <x-all-feedbacks :feedbacks="$feedbacks" />
 
     <!--Services-->
     <div class="services container" id="Servises">

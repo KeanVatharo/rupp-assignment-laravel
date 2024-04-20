@@ -1,15 +1,61 @@
 <x-layout>
-    <header class="bg-dark text-white py-3">
+    <header class="bg-light text-white py-3">
         <div class="container">
-            <h1 class="display-4 mb-0">BuyCar24</h1>
-            <p class="lead">Your one-stop shop for cars, services, and parts.</p>
+            <h1 class="display-4 mb-0">About us</h1>
+            <p class="text-black lead">Our Team, What We Do, Our Story, Our Provide Services.</p>
         </div>
     </header>
 
     <main class="container my-5">
+        <h2 class="text-center mb-3">Our Team</h2>
+        <div class="row">
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/Bong%20Ro.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Kean Vatharo</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/nak.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Nhik Sovanrothanak</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/Rith.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Chhouk Keo Darith</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/MH.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Ly Menghouy</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/Sm.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Khloeng SiemEng</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/Hong.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Kann Senghong</h5>
+            </div>
+
+            <div class="col-lg text-center">
+                <img src="https://keanvatharo.github.io/rupp-web/assets/images/teams/Bo.jpg"
+                    class="w-5 img-fluid rounded-circle" style="width: 150px" />
+                <h5 class="text-center mt-3">Tim Junesombo</h5>
+            </div>
+        </div>
+
+        <hr />
         <div class="row">
             <div class="col-md-6">
-                <img src="/images/about-us-car-showroom.jpg" class="img-fluid rounded mb-3" alt="Car showroom" />
+                <h2 class="mb-3">What We Do</h2>
                 <p>
                     We're more than just a car dealership. We're a passionate team of
                     car enthusiasts dedicated to providing you with an exceptional
@@ -32,14 +78,12 @@
             <div class="col-md-6">
                 <h2 class="mb-3">Our Story</h2>
                 <p>
-                    Founded in [Year], [Your Car Company Name] was born from a shared
-                    love of cars and a commitment to customer satisfaction. We've grown
-                    into a thriving community of experts, all working together to make
-                    your car ownership journey smooth and enjoyable.
+                    Founded in 2009, BuyCar24 was born from a shared love of cars and a
+                    commitment to customer satisfaction. We've grown into a thriving
+                    community of experts, all working together to make your car
+                    ownership journey smooth and enjoyable.
                 </p>
                 <div class="d-flex align-items-center mb-3">
-                    <img src="/images/about-us-team.jpg" class="img-fluid rounded-circle mr-3" alt="Team photo"
-                        width="75" height="75" />
                     <p>
                         Our team is passionate about cars and dedicated to exceeding your
                         expectations.
@@ -51,7 +95,6 @@
         <div class="row">
             <div class="col-md-4">
                 <h3 class="mb-3">Car Sales</h3>
-                <img src="/images/about-us-car-sales.jpg" class="img-fluid rounded mb-3" alt="Car sales" />
                 <p>
                     Explore a diverse selection of new and pre-owned vehicles from top
                     brands, carefully curated to suit every budget and lifestyle.
@@ -70,7 +113,6 @@
             </div>
             <div class="col-md-4">
                 <h3 class="mb-3">Car Services</h3>
-                <img src="/images/about-us-car-service.jpg" class="img-fluid rounded mb-3" alt="Car service" />
                 <p>
                     Keep your car running smoothly and safely with our comprehensive
                     maintenance and repair services.
@@ -89,7 +131,6 @@
             </div>
             <div class="col-md-4">
                 <h3 class="mb-3">Car Parts</h3>
-                <img src="/images/about-us-car-parts.jpg" class="img-fluid rounded mb-3" alt="Car parts" />
                 <p>
                     Find the perfect parts for your car, whether it's a genuine
                     replacement or a high-performance upgrade.
