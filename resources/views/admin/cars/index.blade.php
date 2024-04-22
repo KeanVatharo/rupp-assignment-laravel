@@ -33,6 +33,7 @@
                         <td>{{ $car->created_at }}</td>
                         <td>{{ $car->updated_at }}</td>
                         <td class="d-flex gap-1">
+                            <a href="{{ route('admin.cars.show', $car) }}" class="btn btn-primary btn-sm">View</a>
                             <a href="{{ route('admin.cars.edit', $car) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('admin.cars.destroy', $car) }}" method="post">
                                 @csrf

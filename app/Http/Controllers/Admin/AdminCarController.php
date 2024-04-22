@@ -16,6 +16,11 @@ class AdminCarController extends Controller
         return view('admin.cars.index', compact('cars'));
     }
 
+    public function show(Car $car)
+    {
+        return view('admin.cars.show', compact('car'));
+    }
+
     public function create()
     {
         $carBrands = CarBrand::select(['id', 'name'])->get();
@@ -82,7 +87,7 @@ class AdminCarController extends Controller
             $imagePath = $request->file('image_url')->store('cars', 'public');
         }
 
-        Car::create([
+        auth()->user()->car()->create([
             'name' => $validated['name'],
             'car_brand_id' => $validated['car_brand_id'],
             'year' => $validated['year'],
